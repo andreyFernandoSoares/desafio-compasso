@@ -36,12 +36,12 @@ public class CidadeService {
 			
 			if (cidade.isPresent())
 				return ResponseEntity.ok(cidade.get());
+			else
+				return ResponseEntity.badRequest().body("A cidade solicitada não existe!");
 			
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body("Nome invalido!");
 		}
-		
-		return ResponseEntity.badRequest().body("Nome invalido!");
 	}
 	
 	public ResponseEntity<?> buscaPeloEstado(String estado) {
@@ -50,12 +50,11 @@ public class CidadeService {
 			
 			if (cidade.isPresent())
 				return ResponseEntity.ok(cidade.get());
-			
+			else
+				return ResponseEntity.badRequest().body("O cidade solicitada não existe!");
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body("Estado invalido!");
 		}
-		
-		return ResponseEntity.badRequest().body("Estado invalido!");
 	}
 	
 	public Boolean validaCidade(Cidade cidade) {

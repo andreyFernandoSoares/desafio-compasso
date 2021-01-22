@@ -1,5 +1,7 @@
 package br.com.compasso.api.desafiotecnico.model;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.compasso.api.desafiotecnico.enums.SexoEnum;
 
@@ -23,7 +27,7 @@ public class Cliente {
 	@Enumerated(EnumType.STRING)
 	private SexoEnum sexo;
 	
-	private String nascimento;
+	private Date nascimento;
 	
 	private Integer idade;
 	
@@ -59,11 +63,12 @@ public class Cliente {
 		this.sexo = sexo;
 	}
 
-	public String getNascimento() {
+	public Date getNascimento() {
 		return nascimento;
 	}
-
-	public void setNascimento(String nascimento) {
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+	public void setNascimento(Date nascimento) {
 		this.nascimento = nascimento;
 	}
 
@@ -90,7 +95,7 @@ public class Cliente {
 	}
 
 	public boolean valido() {
-		if (nomeCompleto != null && nascimento != null && idade != null && idade > 0 && cidade != null)
+		if (nomeCompleto != null && nascimento != null && idade != null && idade > 0 && cidade != null) 
 			return true;
 		
 		return false;
