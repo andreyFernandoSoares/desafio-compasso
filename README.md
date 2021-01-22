@@ -23,4 +23,9 @@ Desafio teste compasso
     }
 }
 
+## BANCO
+
+Foi usado banco de dados H2 em memória. Então toda vez que reinicar a aplicação ele apagara os dados.
+Fiz desta maneira pra não precisar ficar instalando banco e tudo mais.
+
 
