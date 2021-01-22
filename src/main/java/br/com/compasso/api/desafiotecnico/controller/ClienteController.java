@@ -49,7 +49,7 @@ public class ClienteController {
 	
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity<?> alterarNome(@PathVariable Long id) {
+	public ResponseEntity<?> deletar(@PathVariable Long id) {
 		return clienteService.deletar(id);
 	} 
 }
