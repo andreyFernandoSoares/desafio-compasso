@@ -15,7 +15,7 @@ Desafio teste compasso
 {
     "nomeCompleto": "Andrey",
     "sexo": "MASCULINO",
-    "nascimento": "05/06/1997",
+    "nascimento": "05-06-1997 06:00:00",
     "idade": "23",
     "cidade": {
         "nome": "Erechim",
